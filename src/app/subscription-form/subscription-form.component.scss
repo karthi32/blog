@@ -1,0 +1,20 @@
+.card{
+    background-color: var(--secondary-color);
+}
+
+.subs-text{
+    height:auto;
+    word-break: break-all;
+}
+
+@media screen and (min-width: 800px){
+    .subs-text{
+    width: 500px;
+    }
+}
+
+@media screen and (max-width: 800px){
+    form{
+    gap: 15px;
+    }
+}
