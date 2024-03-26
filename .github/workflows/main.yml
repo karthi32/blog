@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Build Angular App
-        run: npm run build -- --prod
+        run: npm run build -- --configuration=production
 
       - name: Firebase Login
         run: firebase login:ci
