@@ -1,15 +1,15 @@
-<div class="card shadow-effect">
-    <img src="https://images.pexels.com/photos/18764385/pexels-photo-18764385/free-photo-of-boys-running-alongside-the-sidewalk-in-black-and-white.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="post-img" class="card-img-top">
+<div class="card shadow-effect" *ngIf="post" [routerLink]="['/post', post?.id]">
+    <img [src]="post?.data?.postImgPath" alt="post-img" class="card-img-top">
     <div class="card-body">
         <div class="d-flex justify-content-start gap-3">
-            <small class="bg-light text-danger text-center">Design</small>
-            <small class="bg-light text-success text-center ml-3">Featured</small>
-            <small class="bg-light text-info text-center ml-3">Views - 100,300</small>
+            <small class="bg-light text-danger text-center">{{ post?.data?.category?.category }}</small>
+            <small class="bg-light text-success text-center ml-3" *ngIf="post?.data?.isFeatured">Featured</small>
+            <small class="bg-light text-info text-center ml-3">Views - {{ post?.data?.views  }}</small>
         </div>
         <h5 class="mt-1">
-            HOW TO START A BLOG IN 2020 EDITED
+            {{post?.data?.title}}
         </h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore facere culpa labore ab nobis vero suscipit dolores vitae unde praesentium earum, ducimus, nostrum optio debitis molestias eum a! Dolorem, ex.</p>
-    <small class="bg-light text-warning text-center ml-3">LAST UPDATED - SEP 20, 2021 </small>
+        <p>{{ post?.data?.excerpt }}</p>
+    <small class="bg-light text-warning text-center ml-3">LAST UPDATED - {{post?.data?.createdAt.toMillis() | date}} </small>
     </div>
 </div>
